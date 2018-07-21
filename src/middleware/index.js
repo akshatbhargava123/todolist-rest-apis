@@ -5,16 +5,22 @@ import { verify as jwtVerify } from 'jsonwebtoken';
 export default ({ config, db }) => {
 	let routes = Router();
 
-	// add middleware here
-
 	// Authentication Middleware
 	routes.use((req, res, next) => {
-		if (req.url.indexOf('login') > -1 || req.url.indexOf('register') > -1) return next();
+		// allow to enter public routes without auth
+		let allowed = false;
+		config.public_routes.forEach(route => {
+			if (req.url.indexOf(route) > -1) allowed = true;
+		});
+		if (allowed) return next();
 		
-		const token = req.headers.authorization.split('.');
-
+		// check for auth
+		let token = req.headers.authorization;
 		if (!token) toRes(res, 401)({ message: 'Unauthorised access!' });
-		else if (token.length != 3) toRes(res, 401)({ message: 'Invalid Authorization token format!' });
+
+		token = token.split('.')
+
+		if (token.length != 3) toRes(res, 401)({ message: 'Invalid Authorization token format!' });
 
 		jwtVerify(token.join('.'), config.jwt_secret, (err, decoded) => {
 			if (err) toRes(res, 401)({ message: 'Invalid Authorization token!' });

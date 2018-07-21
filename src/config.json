@@ -2,5 +2,9 @@
 	"port": 8080,
 	"bodyLimit": "100kb",
 	"corsHeaders": ["Link"],
-	"jwt_secret": "secret"
+	"jwt_secret": "secret",
+	"public_routes": [
+		"register",
+		"login"
+	]
 }
