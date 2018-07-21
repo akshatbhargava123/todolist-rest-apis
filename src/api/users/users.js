@@ -6,6 +6,8 @@ import { toRes, mongooseErrorHandler } from './../../lib/util';
 export default ({ req, res, config, db }) => ({
 
 	login() {
+		if (!req.body.email) return toRes(res, 500)({ message: 'Email field is required!' });
+		if (!req.body.password) return toRes(res, 500)({ message: 'Password field is required!' });
 		UserModel(db).findOne({
 			email: req.body.email
 		}, (err, user) => {
