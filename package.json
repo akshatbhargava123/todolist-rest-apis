@@ -4,7 +4,7 @@
   "description": "Todolist Application Backend which holds the REST apis",
   "main": "dist",
   "scripts": {
-    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
+    "dev": "clear && nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
     "build": "babel src -s -D -d dist --presets es2015,stage-0",
     "start": "node dist",
     "prestart": "npm run -s build",
@@ -32,6 +32,8 @@
     "cors": "^2.7.1",
     "express": "^4.13.3",
     "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.4",
+    "mongoose-unique-validator": "^2.0.1",
     "morgan": "^1.8.0",
     "resource-router-middleware": "^0.6.0"
   },
