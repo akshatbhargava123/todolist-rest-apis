@@ -1,0 +1,10 @@
+{
+  "name": "TodoList Application",
+  "version": "1.0.0",
+  "description": "TodoList REST APIs",
+  "title": "Todolist Application backend",
+  "order": [
+    "User",
+    "Lists"
+  ]
+}
