@@ -14,8 +14,8 @@ export default callback => {
 		console.log('Connection to database disconnected');
 	});
 
-	db.on('error', () => {
-		console.log('Error occured while connecting to database');
+	db.on('error', (error) => {
+		console.log('Error occured while connecting to database:', JSON.stringify(error));
 	});
 
 	callback(db);

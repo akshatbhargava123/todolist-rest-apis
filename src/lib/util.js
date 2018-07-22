@@ -11,7 +11,7 @@
 export function toRes(res, status = 200) {
 	return (err, thing) => {
 		if (err) {
-			res.status(500).send({ error: true, ...err });
+			res.status(status == 200 ? 500 : status).send({ error: true, ...err });
 			return res.destroy();
 		}
 

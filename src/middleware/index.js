@@ -16,7 +16,7 @@ export default ({ config, db }) => {
 		
 		// check for auth
 		let token = req.headers.authorization;
-		if (!token) toRes(res, 401)({ message: 'Unauthorised access!' });
+		if (!token) return toRes(res, 401)({ message: 'Unauthorised access!' });
 
 		token = token.split('.')
 
