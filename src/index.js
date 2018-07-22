@@ -26,6 +26,8 @@ app.use(bodyParser.json({
 // connect to db
 initializeDb( db => {
 
+	app.get('/', (req, res) => res.send('<h1>welcome!</h1>'));
+	
 	// internal middleware
 	app.use(middleware({ config, db }));
 
