@@ -11,6 +11,8 @@ import config from './config.json';
 let app = express();
 app.server = http.createServer(app);
 
+app.use('/docs', express.static(__dirname + '/../docs'));
+
 // logger
 app.use(morgan('dev'));
 
@@ -22,8 +24,6 @@ app.use(cors({
 app.use(bodyParser.json({
 	limit: config.bodyLimit
 }));
-
-app.use('/docs', express.static(__dirname + '/../docs'));
 
 // connect to db
 initializeDb(db => {
