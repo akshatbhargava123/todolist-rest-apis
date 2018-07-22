@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 export default callback => {
-	// connect to a database if needed, then pass it to `callback`:
+
+	// This is hardcoded for now, username and password of db should be in env variables
 	mongoose.connect('mongodb://test:test.123@ds245901.mlab.com:45901/todolist-app');
 
 	const db = mongoose.connection;
