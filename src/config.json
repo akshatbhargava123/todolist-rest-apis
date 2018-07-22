@@ -1,10 +1,11 @@
 {
-	"port": 8080,
+	"port": 8081,
 	"bodyLimit": "100kb",
 	"corsHeaders": ["Link"],
 	"jwt_secret": "secret",
 	"public_routes": [
 		"register",
-		"login"
+		"login",
+		"docs"
 	]
 }

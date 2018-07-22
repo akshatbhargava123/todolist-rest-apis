@@ -20,14 +20,17 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json({
-	limit : config.bodyLimit
+	limit: config.bodyLimit
 }));
 
-// connect to db
-initializeDb( db => {
+app.use('/docs', express.static(__dirname + '/../docs'));
 
-	app.get('/', (req, res) => res.send('<h1>welcome!</h1>'));
-	
+// connect to db
+initializeDb(db => {
+
+	// send a greet
+	app.get('/', (req, res) => res.send('welcome!'));
+
 	// internal middleware
 	app.use(middleware({ config, db }));
 
