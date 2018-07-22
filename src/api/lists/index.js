@@ -9,5 +9,9 @@ export default ({ config, db }) => {
 
 	api.post('/', (req, res) => lists({ req, res, config, db }).create());
 
+	api.put('/:id', (req, res) => lists({ req, res, config, db }).updateList());
+
+	api.delete('/:id', (req, res) => lists({ req, res, config, db }).deleteList());
+
 	return api;
 }
