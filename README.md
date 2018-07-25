@@ -1,5 +1,6 @@
-Todo List Application
+Todo List Application Backend (interview task for Vicinity Charter)
 ==================================
+Backend following REST architecture made on Express framework using MongoDB as database and built tools to use sugary Javascript.
 
 # Steps to run
 - run `npm install` in current directory to install all dependencies
