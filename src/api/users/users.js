@@ -16,7 +16,7 @@ export default ({ req, res, config, db }) => ({
 			const passwordIsValid = compareSync(req.body.password, user.password);
 			if (!passwordIsValid) return toRes(res, 401)({ message: 'Invalid credentials!' });
 			const token = jwtSign({
-				id: user._id,
+				_id: user._id,
 				name: user.name,
 				email: user.email
 			}, config.jwt_secret, { expiresIn: 86400 });
